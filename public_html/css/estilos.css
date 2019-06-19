@@ -1,0 +1,157 @@
+/* HACK */
+/* No usar en Bootsrap o algún otro framework de CSS */
+* {
+  box-sizing: border-box;
+}
+
+/* GENERAL */
+body {
+  background: whitesmoke;
+  font-family: sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+/* ESTILOS DEL CARRUSEL */
+#carruselTempo {
+  background: gray;
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+  overflow: hidden;
+}
+
+#carruselTempo a.botonesDireccion {
+  background-color: rgba(255,255,255,.5);
+  box-shadow: 2px 2px .35em rgba(51,51,51,.35);
+  color: rgb(100,100,100);
+  display: block;
+  font-size: 24px;
+  height: 48px;
+  line-height: 54px;
+  position: absolute;
+  text-align: center;
+  text-decoration: none;
+  transition: all .25s ease;
+  width: 48px;
+  z-index: 100;
+}
+
+#carruselTempo a.botonesDireccion:hover {
+  background-color: rgba(255,255,255,.95);
+  text-decoration: none;
+}
+
+#carruselTempo a.botonesDireccion.izquierda {
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+  left: 0;
+  padding-right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#carruselTempo a.botonesDireccion.izquierda:hover {
+  padding-right: 12px;
+}
+
+#carruselTempo a.botonesDireccion.derecha {
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+  padding-left: 6px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#carruselTempo a.botonesDireccion.derecha:hover {
+  padding-left: 12px;
+}
+
+#carruselTempo .termo-posicion {
+  background-color: rgba(225,225,225,.5);
+  border-top: 1px solid lightgray;
+  bottom: 0;
+  height: 24px;
+  position: absolute;
+  width: 100vw;
+  z-index: 100;
+}
+
+#carruselTempo .termo-posicion .termo-contenedor {
+  background: rgba(255,255,255,.5);
+  border-radius: 10px;
+  height: 50%;
+  left: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 99vw;
+}
+
+#carruselTempo .termo-posicion .termo-contenedor .termometro {
+  background: linear-gradient(pink, brown);
+  height: 100%;
+  position: absolute;
+  width: 0;
+}
+
+#carruselTempo .ventana {
+  background: linear-gradient(pink, brown);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  left: -100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+#carruselTempo .ventana.ventanaA {
+  background-image: url(http://lorempixel.com/1080/768/food);
+}
+
+#carruselTempo .ventana.ventanaB {
+  background-image: url(http://lorempixel.com/1080/768/city);
+}
+
+#carruselTempo .ventana.ventanaC {
+  background-image: url(http://lorempixel.com/1080/768/fashion);
+}
+
+#carruselTempo .ventana.ventanaD {
+  background-image: url(http://lorempixel.com/1080/768/sports);
+}
+
+#carruselTempo .ventana.ventanaE {
+  background-image: url(http://lorempixel.com/1080/768/nature);
+}
+
+/* SOLO COMO MUESTRA */
+#contenedor {
+  margin: 10rem auto;
+  width: 992px;
+}
+
+#contenedor p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 2;
+}
+
+footer {
+  background: linear-gradient(blue, rgb(50,50,200));
+  padding: 2rem;
+  width: 100vw;
+}
+
+footer p {
+  color: whitesmoke;
+  margin: 0 auto;
+  text-align: center;
+  width: 992px;
+}
