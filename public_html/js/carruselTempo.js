@@ -2,6 +2,7 @@
 
   let vActual = 0; // Posición de ventana que se ve en pantalla
   let direccion = 'derecha';
+  let tempo;
   const ventanas = document.querySelectorAll('#carruselTempo .ventana');
 
   /**
@@ -19,7 +20,9 @@
 
 
   /**
-   * ANINAR LAS VENTANAS
+   * ANIMAR LAS VENTANAS
+   * @author Fernando Magrosoto
+   * @copyright junio, 2019
    */
   const animarVentanas = () => {
 
@@ -41,13 +44,13 @@
       }
     }
 
-    // Regresar TODAS las ventanas que no estén activas a la posición
+    // Regresar TODAS las ventanas que no estén activas a la posición x
     $('.ventana:not(.activo)').css({'left': posicion, 'z-index': 5 })
 
-    // Quitar activo y mover el z-index en la ventana actual
+    // Quitar activo y mover el z-index, en la ventana actual
     $(ventanas[vActual]).css({'z-index': 5}).removeClass('activo');
 
-    // Poner activo y mover z-index la próxima ventana
+    // Poner activo y mover z-index en la próxima ventana
     $(ventanas[siguiente]).css({'z-index': 10}).addClass('activo').animate({'left': 0}, 900);
 
     vActual = siguiente;
@@ -88,14 +91,19 @@
       .addClass('activo');
     moverTemporizador(10000);
 
-    // Al hacer hover en la ventana activa se pausa la animación.
-    // Al hacer mouseleave en la ventana activa, se reestablece la animación.
+    // Al hacer mouseover en la ventana activa se pausa la animación.
     $('body').on('mouseover', '#carruselTempo .ventana.activo', () => {
       $('.termometro').stop(false, false);
+      tempo = setTimeout(() => {
+        // Que se mueva después de 10 segundos (10000ms) de inactividad.
+        moverTemporizador(4000)
+      },10000);
     });
-
+    
+    // Al hacer mouseleave en la ventana activa, se reestablece la animación.
     $('body').on('mouseleave', '#carruselTempo .ventana.activo', () => {
-      moverTemporizador(5000)
+      moverTemporizador(5000);
+      clearTimeout(tempo);
     });
 
   }, false);
